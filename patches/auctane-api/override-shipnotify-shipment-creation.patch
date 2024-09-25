@@ -1,0 +1,21 @@
+diff --git a/vendor/auctane/api/Model/Action/ShipNotify.php b/vendor/auctane/api/Model/Action/ShipNotify.php
+--- a/vendor/auctane/api/Model/Action/ShipNotify.php
++++ b/vendor/auctane/api/Model/Action/ShipNotify.php
+@@ -243,7 +243,7 @@ class ShipNotify
+             throw new ShipmentCannotBeCreatedForOrderException($xml->OrderID, $shippingError);
+         }
+ 
+-        $this->_getOrderShipment($order, $qtys, $xml);
++        $this->getOrderShipment($order, $qtys, $xml);
+ 
+         // ShipStation sometimes issue two shipnotify with the same parameters which would cause an invoice email to be
+         // send twice to a customer. We place the send logic here because the second shipnotify will fail when
+@@ -419,7 +419,7 @@ class ShipNotify
+      * @return $this
+      * @throws LocalizedException
+      */
+-    private function _getOrderShipment(Order $order, array $qtys, SimpleXMLElement $xml): self
++    public function getOrderShipment(Order $order, array $qtys, SimpleXMLElement $xml): self
+     {
+         $shipment = $this->_shipmentFactory->create($order, $qtys, [[
+             'number' => (string) $xml->TrackingNumber,

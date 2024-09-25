@@ -1,0 +1,32 @@
+{
+  "name": "rad-works/module-shipstation-shipnotify",
+  "version": "0.1.0",
+  "description": "",
+  "type": "magento2-module",
+  "require": {
+    "php": "~8.1.0||~8.2.0||~8.3.0",
+    "rad-works/module-shipstation-api-core": "*",
+    "auctane/api": "*",
+    "cweagans/composer-patches": "*"
+  },
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "RadWorks\\ShipStationShipNotify\\": ""
+    }
+  },
+  "extra": {
+    "composer-exit-on-patch-failure": true,
+    "patches": {
+      "auctane/api": {
+        "Override ShipNotify::_getOrderShipment method": "./vendor/rad-works/module-shipstation-shipnotify/patches/auctane-api/override-shipnotify-shipment-creation.patch"
+      }
+    }
+  }
+}
