@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="radworks">
+            <group id="shipstation_shipnotify" translate="label" type="text" sortOrder="20" showInDefault="1">
+                <label>Shipments</label>
+                <field id="shipment_enabled" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Enable Shipment Import</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[This feature allows importing shipments from the ShipStation API.
+                         When enabled, the ShipNotify action will be partially overridden to accurately
+                         sync Magento orders with ShipStation API shipments and fulfillment.]]>
+                    </comment>
+                </field>
+                <field id="skip_inventory_validation" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Skip Inventory Validation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[This feature allows skipping inventory source validation,
+                        which can be useful when a product with managed inventory stock
+                        doesn’t have the required quantities for the shipment creation.]]>
+                    </comment>
+                </field>
+                <field id="shipment_import_source" type="select" sortOrder="24" showInDefault="1" translate="label">
+                    <label>Shipment Import Source</label>
+                    <source_model>RadWorks\ShipStationShipNotify\Model\Config\Source\ShipmentImportSource</source_model>
+                    <depends>
+                        <field id="*/*/shipment_enabled">1</field>
+                    </depends>
+                    <comment>
+                        <![CDATA[Create order shipments from these ShipStation API data sources.]]>
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
