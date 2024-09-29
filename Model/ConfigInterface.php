@@ -16,13 +16,6 @@ interface ConfigInterface
     public function isShipmentImportEnabled(): bool;
 
     /**
-     * Get import data source entity
-     *
-     * @return int
-     */
-    public function getShipmentImportSource(): int;
-
-    /**
      * Get flag that disables/enables inventory validation
      *
      * @return bool
