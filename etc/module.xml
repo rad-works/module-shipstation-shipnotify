@@ -3,6 +3,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
     <module name="RadWorks_ShipStationShipNotify">
         <sequence>
+            <module name="RadWorks_QuickOrderShipment"/>
             <module name="Auctane_Api"/>
         </sequence>
     </module>

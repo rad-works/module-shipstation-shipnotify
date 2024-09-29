@@ -56,7 +56,7 @@ class OverrideShipmentCreation
 
         $this->shipmentBuilder
             ->skipInventoryDeduction($this->config->isShipmentInventoryValidationEnabled())
-            ->build($order)
+            ->build($order, $this->getQuantities($order, $qtys))
             ->addTrack($track)
             ->addComment((string) $xml->InternalNotes)
             ->save();
