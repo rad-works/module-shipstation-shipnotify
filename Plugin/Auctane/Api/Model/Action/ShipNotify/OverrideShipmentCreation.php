@@ -42,7 +42,13 @@ class OverrideShipmentCreation
      * @return Subject
      * @throws LocalizedException
      */
-    public function aroundGetOrderShipment(Subject $shipNotify, callable $proceed, Order $order, array $qtys, XML $xml): Subject
+    public function aroundGetOrderShipment(
+        Subject  $shipNotify,
+        callable $proceed,
+        Order    $order,
+        array    $qtys,
+        XML      $xml
+    ): Subject
     {
         if (!$this->config->isShipmentImportEnabled()) {
             return $proceed($order, $qtys, $xml);
@@ -58,7 +64,7 @@ class OverrideShipmentCreation
             ->skipInventoryDeduction($this->config->isShipmentInventoryValidationEnabled())
             ->build($order, $this->getQuantities($order, $qtys))
             ->addTrack($track)
-            ->addComment((string) $xml->InternalNotes)
+            ->addComment((string)$xml->InternalNotes)
             ->save();
 
         return $shipNotify;

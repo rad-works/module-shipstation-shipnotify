@@ -2,10 +2,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="radworks" sortOrder="255">
-            <label>RadWorks</label>
-        </tab>
-        <section id="radworks">
+        <section id="radworks" translate="label" type="text" sortOrder="300" showInDefault="1">
+            <label>ShipNotify Settings</label>
+            <tab>shipstation</tab>
+            <resource>RadWorks_ShipStationShipNotify::settings</resource>
             <group id="shipstation_shipnotify" translate="label" type="text" sortOrder="20" showInDefault="1">
                 <label>ShipNotify</label>
                 <field id="shipment_enabled" translate="label" type="select" sortOrder="20" showInDefault="1">
