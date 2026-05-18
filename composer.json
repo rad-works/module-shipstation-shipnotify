@@ -1,10 +1,10 @@
 {
   "name": "rad-works/module-shipstation-shipnotify",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "",
   "type": "magento2-module",
   "require": {
-    "php": "~8.1.0||~8.2.0||~8.3.0",
+    "php": ">=8.1.0",
     "rad-works/module-quick-order-shipment": "*",
     "auctane/api": "*",
     "cweagans/composer-patches": "*"
